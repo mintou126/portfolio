@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Portfolio</title>
+    <meta name="description" content="私のポートフォリオサイトです" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="keywords" content="ポートフォリオ" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    />
+
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+    /*イラスト集のアニメーション*/
+    @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    @keyframes scroll-right {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+    }
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    @keyframes scrollDown {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(10px); }
+        100% { transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .scroll-container {
+        display: flex;
+        width: 200%;
+        animation: scroll-left 40s infinite linear 0.5s both;
+        padding: 0.5rem 0rem;
+        will-change: transform;
+    }
+    .scroll-container-reverse {
+        display: flex;
+        width: 200%;
+        animation: scroll-right 40s infinite linear 0.5s both;
+        padding: 0.5rem 0rem;
+        will-change: transform;
+    }
+    .scroll-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        margin: 0.5rem 0;
+    }
+    .scroll-wrapper::before,
+    .scroll-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 100%;
+        z-index: 1;
+    }
+    .scroll-wrapper::before {
+        left: 0;
+        background: linear-gradient(to right, white, transparent);
+    }
+    .scroll-wrapper::after {
+        right: 0;
+        background: linear-gradient(to left, white, transparent);
+    }
+    .animate-fadeInUp {
+        animation: fadeInUp 1s ease-out forwards;
+    }
+    .animate-scrollDown {
+        animation: scrollDown 2s ease-in-out infinite;
+    }
+    .work-item-shadow {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 12px 0px;
+        transform: translateZ(0);
+    }
+    /* スクロールによるフェードイン */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 1s ease-out, transform 1s ease-out, box-shadow 0.3s ease-out;
+    }
+  </style>
+
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__inner">
+          <div class="header__logo">
+         <!-- <a href="#" class="header__logo__link">Chiyo Makihata</a>-->
+          <img href="#" class="header__logo__link" src="./assets/images/Chiyologo.svg" alt="logo4">
+          </div>
+          <nav class="header__menu">
+            <ul class="header__list">
+              <li class="header__item">
+                <a href="#works" class="header__link">Works</a>
+              </li>
+              <li class="header__item">
+                <a href="#skills" class="header__link">Skills</a>
+              </li>
+              <li class="header__item">
+                <a href="#service" class="header__link">Service</a>
+              </li>
+              <li class="header__item">
+                <a href="#about" class="header__link">About me</a>
+              </li>
+              <li class="header__item">
+                <a href="#contact" class="header__link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main class="main">
+        <div class="main__inner">
+          <section class="top" id="top">
+            <div class="top__heading">
+              <h1 class="top__title">Chiyo Makihata</h1>
+              <div class="space-y-4 opacity-0 animate-fadeInUp" style="animation-delay: 1s;">
+                <p class="sub-titile">WEB DESIGN</p>
+              </div>
+            </div>
+
+              <p class="top__scroll">
+              <div class="top__scroll-bar"><span>scroll</span></div>
+            </p>
+          </section>
+
+
+
+
+
+
+
+          <section class="works" id="works">
+            <div class="c-inner-lv1 works__inner">
+              <h2 class="c-heading-lv1 js-fadein">WORKS</h2>
+              <div class="container">
+                <div class="row works__row">
+                  <a href="./" class="works__link col-md-4 js-fadein--queue">
+                    <p class="works__img">
+                      <img src="./assets/images/biyou2.png" alt="" />
+                    </p>
+                    <div class="works__box">
+                      <h3 class="works__title">
+                        ECサイト用広告バナー   <br class="u-hidden-pc" />               
+                      </h3>
+                      <div class="works__lang"><span class="works__lang--photoshop">Photoshop</span></div>
+                      <p class="works__txt">
+                        商品の魅力を引き出し、<br/>
+                        購買意欲を高めるデザイン
+                      </p>
+                    </div>
+                  </a>
+                  <a href="./"
+                  class="works__link col-md-4 js-fadein--queue"
+                  target="_blank">
+                  <p class="works__img">
+                    <img src="./assets/images/biyou1.png" alt="" />
+                  </p>
+                  <div class="works__box">
+                    <h3 class="works__title">
+                      美容系広告バナー<br class="u-hidden-pc" />
+                    </h3>
+                    <!--<p class="works__url">https://test.com/</p>-->
+                    <div class="works__lang"><span class="works__lang--photoshop">Photoshop</span></div>
+                    <p class="works__txt">
+                      清潔感と信頼感を重視した、<br/>
+                      美容・サロン向け広告バナー
+                    </p>
+                  </div>
+                </a>
+                  <a
+                    href="./"
+                    class="works__link col-md-4 js-fadein--queue"
+                    target="_blank"
+                  >
+                    <p class="works__img">
+                      <img src="./assets/images/pop1.png" alt="" />
+                    </p>
+                    <div class="works__box">
+                      <h3 class="works__title">
+                        SNS広告バナー<br class="u-hidden-pc" />
+                        <!--<span
+                          class="works__title--sub"
+                          >（コーポレートサイト）</span
+                        >-->
+                      </h3>
+                      <div class="works__lang"><span class="works__lang--photoshop">Photoshop</span></div>
+                      <p class="works__txt">
+                        ターゲットに響くデザインで、<br/>
+                        思わずクリックしたくなるように意識
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="./"
+                    class="works__link col-md-4 js-fadein--queue"
+                    target="_blank"
+                  >
+                    <p class="works__img">
+                      <img src="./assets/images/sumaho2.jpg" alt="" />
+                    </p>
+                    <div class="works__box">
+                      <h3 class="works__title">
+                        ガジェット系広告バナー<br class="u-hidden-pc" />
+                      </h3>
+                      <!--<p class="works__url">https://test.com/cosme_lp/</p>-->
+                      <div class="works__lang"><span class="works__lang--photoshop">Photoshop</span></div>
+                      <p class="works__txt">
+                        サービスの見やすさと魅力を<br/>
+                        視覚的に伝えるデザイン
+                      </p>
+                    </div>
+                  </a>
+
+                  <a
+                    href="./"
+                    class="works__link col-md-4 js-fadein--queue"
+                    target="_blank"
+                  >
+                    <p class="works__img">
+                      <img src="./assets/images/sapuli.png" alt="" />
+                    </p>
+                    <div class="works__box">
+                      <h3 class="works__title">
+                        販売促進広告バナー<br class="u-hidden-pc" />
+                      </h3>
+                      <!--<p class="works__url">https://test.com/wordpress-mytheme/</p>-->
+                      <div class="works__lang"><span class="works__lang--photoshop">Photoshop</span></div>
+
+                     <!--<div class="works__lang"><span class="works__lang--wordpress">WordPress</span><span class="works__lang--php">PHP</span></div>-->
+                      <p class="works__txt">
+                        商品の特徴を強調し、<br/>
+                        購入に繋げる販促バナー
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    href="./"
+                    class="works__link col-md-4 js-fadein--queue"
+                    target="_blank"
+                  >
+                    <p class="works__img">
+                      <img src="./assets/images/nise.png" alt="" />
+                    </p>
+                    <div class="works__box">
+                      <h3 class="works__title">
+                        美容系販促バナー<br class="u-hidden-pc" />
+                      </h3>
+                      <div class="works__lang"><span class="works__lang--photoshop">Photoshop</span></div>
+                      <!--<p class="works__url">https://test.com/board/</p>-->
+                      <!--<div class="works__lang"><span class="works__lang--js">Javascript</span><span class="works__lang--php">PHP</span></div>-->
+                      <p class="works__txt">
+                        視線誘導と権威性を重視して、<br/>
+                        信頼感を演出した広告バナー
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="py-8 md:py-20 bg-white relative">
+            <div class="px-2 md:px-4">
+                <h2 class="c-heading-lv1 js-fadein">Banner一覧</h2>
+                <!-- 1行目 右から左へ -->
+                <div class="scroll-wrapper mb-2 md:mb-8">
+                    <div class="scroll-container flex overflow-x-auto">
+                        <!-- 1行目のイラスト集 -->
+                        <div class="flex flex-col w-[120px] md:w-[calc(100vw/4)] pr-4 md:pr-8">
+                            <div class="aspect-video mb-2 md:mb-4 work-item-shadow">
+                                <img src="./assets/images/biyou1.png" alt="美容系広告バナー" class="object-cover">
+                            </div>
+                            <!--<p class="text-[2vw] md:text-sm text-gray-600 min-[2vw]:text-xs">コーヒーショップイラスト</p>-->
+                        </div>
+                        <div class="flex flex-col w-[120px] md:w-[calc(100vw/4)] pr-4 md:pr-8">
+                            <div class="aspect-video mb-2 md:mb-4 work-item-shadow">
+                                <img src="./assets/images/biyou2.png" alt="美容系広告バナー" class="object-cover">
+                            </div>
+                            <!--<p class="text-[2vw] md:text-sm text-gray-600 min-[2vw]:text-xs">コーヒーショップSNSアイコン・ロゴ</p>-->
+                        </div>
+                        <div class="flex flex-col w-[120px] md:w-[calc(100vw/4)] pr-4 md:pr-8">
+                            <div class="aspect-video mb-2 md:mb-4 work-item-shadow">
+                                <img src="./assets/images/kyan1.png" alt="" class="object-cover">
+                            </div>
+                           <!--<p class="text-[2vw] md:text-sm text-gray-600 min-[2vw]:text-xs">花屋さんのSNSアイコン・ロゴ</p>--> 
+                        </div>
+                        <div class="flex flex-col w-[120px] md:w-[calc(100vw/4)] pr-4 md:pr-8">
+                            <div class="aspect-video mb-2 md:mb-4 work-item-shadow">
+                                <img src="./assets/images/nise.png" alt="ドーナツ屋さんのイラスト" class="object-cover">
+                            </div>
+                           <!--<p class="text-[2vw] md:text-sm text-gray-600 min-[2vw]:text-xs">ドーナツ屋さんのイラスト</p>-->
+                        </div>
+                        <!-- スクロール用に、同じものを重複して設置 -->
+                        <div class="flex flex-col w-[120px] md:w-[calc(100vw/4)] pr-4 md:pr-8">
+                            <div class="aspect-video mb-2 md:mb-4 work-item-shadow">
+                                <img src="./assets/images/biyou1.png" alt="コーヒーショップイラスト" class="object-cover">
+                            </div>
+                            <!--<p class="text-[2vw] md:text-sm text-gray-600 min-[2vw]:text-xs">コーヒーショップイラスト</p>-->
+                        </div>
+                        <div class="flex flex-col w-[120px] md:w-[calc(100vw/4)] pr-4 md:pr-8">
+                            <div class="aspect-video mb-2 md:mb-4 work-item-shadow">
+                                <img src="./assets/images/biyou2.png" alt="コーヒーショップロゴ" class="object-cover">
+                            </div>
+                            <!--<p class="text-[2vw] md:text-sm text-gray-600 min-[2vw]:text-xs">コーヒーショップSNSアイコン・ロゴ</p>-->
+                        </div>
+                        <div class="flex flex-col w-[120px] md:w-[calc(100vw/4)] pr-4 md:pr-8">
+                            <div class="aspect-video mb-2 md:mb-4 work-item-shadow">
+                                <img src="./assets/images/kyan1.png" alt="花屋さんのSNSアイコン・ロゴ" class="object-cover">
+                            </div>
+                           <!-- <p class="text-[2vw] md:text-sm text-gray-600 min-[2vw]:text-xs">花屋さんのSNSアイコン・ロゴ</p>-->
+                        </div>
+                        <div class="flex flex-col w-[120px] md:w-[calc(100vw/4)] pr-0 md:pr-8">
+                            <div class="aspect-video mb-2 md:mb-4 work-item-shadow">
+                                <img src="./assets/images/nise.png" alt="ドーナツ屋さんのイラスト" class="object-cover">
+                            </div>
+                            <!--<p class="text-[2vw] md:text-sm text-gray-600 min-[2vw]:text-xs">ドーナツ屋さんのイラスト</p>-->
+                        </div>
+                    </div>
+                </div>
+              
+                
+            
+            </div>
+        </section>
+
+          <section class="skills" id="skills">
+            <div class="c-inner-lv1">
+              <h2 class="c-heading-lv1 js-fadein">Skills</h2>
+              <div class="container skills__container js-fadein">
+                <ul class="row">
+                  <li class="skills__item col-md-3">
+                    <div class="skills__block">
+                        <div class="skills__circle" data-progress="60">
+                            <div class="skills__circle-inner">
+                                <div class="skills__icon">
+                                    <img
+                                    src="./assets/images/icons/language_logo.png"
+                                    alt=""
+                                    />
+                                </div>
+                                <div class="skill_per">60%</div>
+                            </div>
+                        </div>
+                        <h3 class="skills__name">HTML</h3>
+                    </div>
+                  </li>
+                  <li class="skills__item col-md-3">
+                    <div class="skills__block">
+                        <div class="skills__circle" data-progress="60">
+                            <div class="skills__circle-inner">
+                                <div class="skills__icon">
+                                    <img
+                                    src="./assets/images/icons/language_logo.png"
+                                    alt=""
+                                    />
+                                </div>
+                                <div class="skill_per">60%</div>
+                            </div>
+                        </div>
+                        <h3 class="skills__name">CSS</h3>
+                    </div>
+                  </li>
+                  <li class="skills__item col-md-3">
+                    <div class="skills__block">
+                        <div class="skills__circle" data-progress="60">
+                            <div class="skills__circle-inner">
+                                <div class="skills__icon">
+                                    <img
+                                    src="./assets/images/icons/language_logo.png"
+                                    alt=""
+                                    />
+                                </div>
+                                <div class="skill_per">60%</div>
+                            </div>
+                        </div>
+                        <h3 class="skills__name">WordPress</h3>
+                    </div>
+                  </li>
+                 <!-- <li class="skills__item col-md-3">
+                    <div class="skills__block">
+                        <div class="skills__circle" data-progress="70">
+                            <div class="skills__circle-inner">
+                                <div class="skills__icon">
+                                    <img
+                                    src="./assets/images/icons/language_logo.png"
+                                    alt=""
+                                    />
+                                </div>
+                                <div class="skill_per">70%</div>
+                            </div>
+                        </div>
+                        <h3 class="skills__name">Sass</h3>
+                    </div>
+                  </li>-->
+                  <!--<li class="skills__item col-md-3">
+                    <div class="skills__block">
+                        <div class="skills__circle" data-progress="80">
+                            <div class="skills__circle-inner">
+                                <div class="skills__icon">
+                                    <img
+                                    src="./assets/images/icons/language_logo.png"
+                                    alt="html"
+                                    />
+                                </div>
+                                <div class="skill_per">80%</div>
+                            </div>
+                        </div>
+                        <h3 class="skills__name">Javascript/jQuery</h3>
+                    </div>
+                  </li>-->
+                  <!--<li class="skills__item col-md-3">
+                    <div class="skills__block">
+                        <div class="skills__circle" data-progress="70">
+                            <div class="skills__circle-inner">
+                                <div class="skills__icon">
+                                    <img
+                                    src="./assets/images/icons/language_logo.png"
+                                    alt="html"
+                                    />
+                                </div>
+                                <div class="skill_per">70%</div>
+                            </div>
+                        </div>
+                        <h3 class="skills__name">git</h3>
+                    </div>
+                  </li>-->
+                  <li class="skills__item col-md-3">
+                    <div class="skills__block">
+                        <div class="skills__circle" data-progress="80">
+                            <div class="skills__circle-inner">
+                                <div class="skills__icon">
+                                    <img
+                                    src="./assets/images/icons/language_logo.png"
+                                    alt="html"
+                                    />
+                                </div>
+                                <div class="skill_per">80%</div>
+                            </div>
+                        </div>
+                        <h3 class="skills__name">Photoshop</h3>
+                    </div>
+                  </li>
+                  <!--<li class="skills__item col-md-3">
+                    <div class="skills__block">
+                        <div class="skills__circle" data-progress="40">
+                            <div class="skills__circle-inner">
+                                <div class="skills__icon">
+                                    <img
+                                    src="./assets/images/icons/language_logo.png"
+                                    alt="html"
+                                    />
+                                </div>
+                                <div class="skill_per">40%</div>
+                            </div>
+                        </div>
+                        <h3 class="skills__name">PHP</h3>
+                    </div>
+                  </li>-->
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="service" id="service">
+            <div class="c-inner-lv1">
+              <h2 class="c-heading-lv1 js-fadein">Service</h2>
+              <div class="container">
+                <div class="row service__row">
+                  <div class="col-md-3 service__block js-fadein--queue">
+                    <h3 class="service__title">LP制作</h3>
+                    <div class="service__icon-box">
+                      <i class="fas fa-desktop service__icon"></i>
+                    </div>
+                    <div class="service__box">
+                      <p class="service__txt">
+                        1ページで魅力をしっかり伝えるLPをデザイン＆制作します。<br />
+                        サービス紹介、教室のご案内、キャンペーン告知などにおすすめです。<br />
+                        WixまたはHTML/CSSでの制作に対応。スマホ表示も丁寧に整えます。
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-3 service__block js-fadein--queue">
+                    <h3 class="service__title">WordPressサイト構築</h3>
+                    <div class="service__icon-box">
+                      <i class="fab fa-wordpress service__icon"></i>
+                    </div>
+                    <div class="service__box">
+                      <p class="service__txt">
+                        WordPressを使ったサイトの立ち上げやリニューアルをお手伝いします。<br/>
+                        無料テーマを使用したサイト制作や、旧サイトからの移行も可能です。<br>
+                        更新しやすく、個人事業主の方にもやさしい構成でご提案いたします。
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-md-3 service__block js-fadein--queue">
+                    <h3 class="service__title">バナー制作</h3>
+                    <div class="service__icon-box">
+                      <i class="far fa-picture-o service__icon"></i>
+                    </div>
+                    <div class="service__box">
+                      <p class="service__txt">
+                        SNS投稿やWebサイトに使える、魅力的なバナーを制作します。<br/>
+                        Instagram投稿、LINE配信、イベント告知など、用途に合わせたデザインで制作可能。<br/>
+                        おしゃれで伝わるデザインを丁寧に仕上げます。
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="about" id="about">
+            <div class="c-inner-lv1">
+              <h2 class="c-heading-lv1 about-title js-fadein">About Me</h2>
+              <div class="bg-color">
+              <div class="about-container">
+                <div class="row">
+                  <div class="about__img col-sm-5 js-fadein">
+                    <img class="about-image" src="./assets/images/prof2.jpg" alt="My Profile" />
+                    <h3 class="about__name">Chiyo Makihata</h3>
+                  </div>
+                  <div class="about__prof col-sm-7 js-fadein">
+                    <p class="about__info">
+                      美容業界で培ったコミュニケーション能力と提案力を生かして、<br />
+                       要望を丁寧に理解し、お客様に寄り添った提案を目指していきます。
+                      <div class="git-page">
+                        <a class="about-btn" href="" >view more</a>
+                      </div>
+                    </p>
+                  </div>
+                </div>
+              </div>
+             </div>
+            </div>
+          </section>
+
+
+
+
+          <section class="contact" id="contact">
+            <div class="c-inner-lv1">
+              <h2 class="c-heading-lv1 js-fadein">Contact</h2>
+              <div class="container">
+                <p class="row text-center contact__row js-fadein">
+                  制作のご依頼・ご相談などは<br
+                    class="u-hidden-pc"
+                  />下記のメールアドレスにてお願いします。
+                </p>
+                <div class="contact__block js-fadein">
+                    <div class="contact__inner"><a href="mailto:testtest@gmail.com" class="contact__mail">testtest@gmail.com</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          </div>
+          </main>
+          <footer class="footer">
+            <div class="footer__inner container">
+              <p class="footer__cr">
+                Copyright © 2025 Your Name Portfolio All rights reserved.
+              </p>
+            </div>
+          </footer>
+    </div>
+  </body>
+</html>
